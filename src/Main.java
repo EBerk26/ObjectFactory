@@ -6,7 +6,7 @@ public class Main {
         Ponies RandomPony= new Ponies();
         RandomPony.hasHorn = Math.random()<=0.4;
         RandomPony.hasWings = Math.random()<=0.25;
-        RandomPony.hornLength = (int)(Math.random()*9+1);
+        RandomPony.hornLength = (double)(RandInt(1,100))/10;
 
         String[] NameLibrary = new String[10];
         NameLibrary[0] = "Eli";
@@ -36,7 +36,7 @@ public class Main {
         System.out.println("#"+ponyNumber+": "+RandomPony.name+" the pony "+UnicornDescription+". "+RandomPony.name+" "+PegasusDescription+".");
     }
     public static void main(String[] args) {
-        for(int x =1; x<=10;x++) {
+        for(int x =1; x<=100;x++) {
             describeRandomPony(x);
         }
     }
