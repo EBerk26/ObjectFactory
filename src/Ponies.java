@@ -3,4 +3,4 @@ public class Ponies {
         double hornLength;
         boolean hasWings;
         String name;
-    }
+}

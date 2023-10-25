@@ -7,8 +7,7 @@ public class Main {
         RandomPony.hasHorn = Math.random()<=0.4;
         RandomPony.hasWings = Math.random()<=0.25;
         RandomPony.hornLength = (double)(RandInt(1,100))/10;
-
-        String[] NameLibrary = new String[10];
+        String[] NameLibrary = new String[11];
         NameLibrary[0] = "Eli";
         NameLibrary[1] = "Teddy";
         NameLibrary[2] = "Gabe";
@@ -19,9 +18,9 @@ public class Main {
         NameLibrary[7] = "Rae";
         NameLibrary[8] = "Claire";
         NameLibrary[9] = "Sparkles";
-
-        RandomPony.name = NameLibrary[RandInt(0,9)];
-       String UnicornDescription;
+        NameLibrary[10] = "Fluffy";
+        RandomPony.name = NameLibrary[RandInt(0,10)];
+        String UnicornDescription;
         if(RandomPony.hasHorn){
             UnicornDescription = ("is a unicorn and has a horn length of "+ RandomPony.hornLength+" inches");
         } else {
@@ -33,10 +32,13 @@ public class Main {
         } else {
             PegasusDescription = "is not a pegasus";
         }
-        System.out.println("#"+ponyNumber+": "+RandomPony.name+" the pony "+UnicornDescription+". "+RandomPony.name+" "+PegasusDescription+".");
+        System.out.println("#" + ponyNumber + ": " + RandomPony.name + " the pony " + UnicornDescription + ". " + RandomPony.name + " "+PegasusDescription + ".");
+        if(RandomPony.hasHorn && RandomPony.hasWings && RandomPony.hornLength == 10){
+            System.out.println(RandomPony.name + " is a perfect pony!");
+        }
     }
     public static void main(String[] args) {
-        for(int x =1; x<=100;x++) {
+        for(int x =1; x<=1000;x++) {
             describeRandomPony(x);
         }
     }
