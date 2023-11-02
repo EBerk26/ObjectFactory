@@ -23,12 +23,15 @@ public class Main {
         NameLibrary[12] = "Peanut";
         NameLibrary[13] = "Daisy";
         RandomPony.name = NameLibrary[RandInt(0,13)];
-        RandomPony.Number = ponyNumber;
+        RandomPony.number = ponyNumber;
         RandomPony.describePony();
     }
     public static void main(String[] args) {
         for(int x =1; x<=10;x++) {
             describeRandomPony(x);
         }
+        System.out.println("-----------------------------------");
+        Ponies p = new Ponies(true,10, true, "Fido", 11);
+        p.describePony();
     }
 }
