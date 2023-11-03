@@ -1,6 +1,6 @@
 public class RandomNameGenerator {
     //this is an experiment and a work in progress
-    public static void main(String[] args) {
+    public static String RandomName() {
         String[] CapitalConsonant = new String[21];
         String[] CapitalVowel = new String[5];
         String[] LowercaseVowel = new String[5];
@@ -144,57 +144,59 @@ public class RandomNameGenerator {
         String RandomWord = "";
         boolean previouswasvowel = false;
         int Chooser;
-
-        for(int x = 1; x<=WordParts;x++){
-            if(x==1){
-                String SelectCapitalConsonant = CapitalConsonant[Main.RandInt(0, 20)];
-                String SelectCapitalVowel = CapitalVowel[Main.RandInt(0, 4)];
-                String SelectCapitalConsonantCombo = CapitalConsonantCombo[Main.RandInt(0, 21)];
-                String SelectCapitalVowelCombo = CapitalVowelCombo[Main.RandInt(0, 23)];
-                Chooser = Main.RandInt(1,9);
-                if(1<=Chooser&&Chooser<=3){
-                    RandomWord = SelectCapitalConsonantCombo;
-                    previouswasvowel = false;
-                }
-                if(4<=Chooser&&Chooser<=6){
-                    RandomWord = SelectCapitalConsonant;
-                    previouswasvowel = false;
-                }
-                if(7<=Chooser&&Chooser<=8){
-                    RandomWord = SelectCapitalVowel;
-                    previouswasvowel=true;
-                }
-                if(Chooser == 9){
-                    RandomWord = SelectCapitalVowel;
-                    previouswasvowel=true;
-                }
-            } else {
-                if(previouswasvowel){
+            for(int x = 1; x<=WordParts;x++){
+                if(x==1){
+                    String SelectCapitalConsonant = CapitalConsonant[Main.RandInt(0, 20)];
+                    String SelectCapitalVowel = CapitalVowel[Main.RandInt(0, 4)];
+                    String SelectCapitalConsonantCombo = CapitalConsonantCombo[Main.RandInt(0, 21)];
+                    String SelectCapitalVowelCombo = CapitalVowelCombo[Main.RandInt(0, 23)];
                     Chooser = Main.RandInt(1,9);
-                    if(1<=Chooser && Chooser<=5) {
-                        String SelectLowercaseConsonant = LowercaseConsonant[Main.RandInt(0, 20)];
-                        RandomWord = (RandomWord+SelectLowercaseConsonant);
+                    if(1<=Chooser&&Chooser<=3){
+                        RandomWord = SelectCapitalConsonantCombo;
                         previouswasvowel = false;
-                    } else {
-                        String SelectLowercaseConsonantCombo = LowercaseConsonantCombo[Main.RandInt(0, 20)];
-                        RandomWord = (RandomWord + SelectLowercaseConsonantCombo);
+                    }
+                    if(4<=Chooser&&Chooser<=6){
+                        RandomWord = SelectCapitalConsonant;
                         previouswasvowel = false;
+                    }
+                    if(7<=Chooser&&Chooser<=8){
+                        RandomWord = SelectCapitalVowel;
+                        previouswasvowel=true;
+                    }
+                    if(Chooser == 9){
+                        RandomWord = SelectCapitalVowel;
+                        previouswasvowel=true;
                     }
                 } else {
-                    Chooser = Main.RandInt(1,7);
-                    if(1<=Chooser&&Chooser<=4){
-                        String SelectLowercaseVowelCombo = LowercaseVowelCombo[Main.RandInt(0, 23)];
-                        RandomWord = (RandomWord+SelectLowercaseVowelCombo);
-                        previouswasvowel = true;
-                    }
-                    if(5<=Chooser&&Chooser<=7){
-                        String SelectLowercaseVowel = LowercaseVowel[Main.RandInt(0, 4)];
-                        RandomWord = (RandomWord+SelectLowercaseVowel);
-                        previouswasvowel = true;
+                    if(previouswasvowel){
+                        Chooser = Main.RandInt(1,9);
+                        if(1<=Chooser && Chooser<=5) {
+                            String SelectLowercaseConsonant = LowercaseConsonant[Main.RandInt(0, 20)];
+                            RandomWord = (RandomWord+SelectLowercaseConsonant);
+                            previouswasvowel = false;
+                        } else {
+                            String SelectLowercaseConsonantCombo = LowercaseConsonantCombo[Main.RandInt(0, 20)];
+                            RandomWord = (RandomWord + SelectLowercaseConsonantCombo);
+                            previouswasvowel = false;
+                        }
+                    } else {
+                        Chooser = Main.RandInt(1,7);
+                        if(1<=Chooser&&Chooser<=4){
+                            String SelectLowercaseVowelCombo = LowercaseVowelCombo[Main.RandInt(0, 23)];
+                            RandomWord = (RandomWord+SelectLowercaseVowelCombo);
+                            previouswasvowel = true;
+                        }
+                        if(5<=Chooser&&Chooser<=7){
+                            String SelectLowercaseVowel = LowercaseVowel[Main.RandInt(0, 4)];
+                            RandomWord = (RandomWord+SelectLowercaseVowel);
+                            previouswasvowel = true;
+                        }
                     }
                 }
             }
+        return(RandomWord);
         }
-        System.out.println(RandomWord);
+    public static void main(String[] args) {
+        System.out.println(RandomName());
     }
 }
